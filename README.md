@@ -1,7 +1,7 @@
 ### Introduction
-One sentence "sound bite" that describes your project.  
+The goal of the project is to create a robotic hand that is controlled by sensing the muscular contractions in the arm of the user and replicate the movements on the hand.   
 
-A summary of what you did and why.
+Electrodes will be placed on multiple areas on the arm of the user that sense the voltage differences of the muslces as they contract. The electrode signals will be sent into a gain and filter circuit which amplifies and cleans the signal to be passed into the analog digitial converter (DAC) of the PIC32 microcontroller. The PIC32 will then analyze the inputs and decide which fingers, if any, were moved. The PIC32 will then send PWM waves to move the servos attached to the robotic hand and move the fingers.  
 
 ### High Level Design
 rationale and sources of your project idea
