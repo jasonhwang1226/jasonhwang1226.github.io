@@ -1,14 +1,59 @@
-### Robotic Hand
-This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here [using GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/), select a template crafted by a designer, and publish. After your page is generated, you can check out the new `gh-pages` branch locally. If you’re using GitHub Desktop, simply sync your repository and you’ll see the new branch.
+### Introduction
+One sentence "sound bite" that describes your project.
+A summary of what you did and why.
 
-### Designer Template
-We’ve crafted some handsome templates for you to use. Go ahead and click 'Continue to layouts' to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved.
+### High Level Design
+rationale and sources of your project idea
+background math
+logical structure
+hardware/software tradeoffs
+Relationship of your design to available IEEE, ISO, ANSI, DIN, and other standards.
+Discuss existing patents, copyrights, and trademarks which are relevant to your project.
 
-### Creating pages manually
-If you prefer to not use the automatic generator, push a branch named `gh-pages` to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.
+### Program/Hardware Design
+program details. Could someone else build this based on what you have written?
+hardware details. Could someone else build this based on what you have written?
+Be sure to specifically reference any design or code you used from someone else.
+Things you tried which did not work
 
-### Authors and Contributors
-You can @mention a GitHub username to generate a link to their profile. The resulting `<a>` element will link to the contributor’s GitHub Profile. For example: In 2007, Chris Wanstrath (@defunkt), PJ Hyett (@pjhyett), and Tom Preston-Werner (@mojombo) founded GitHub.
+### Results
+This is the section which is most often lacking in student projects. Be specific! 
+If you took calibration data, then show it!
+If you have images or video, include it.
+speed of execution (hesitation, filcker, interactiveness, concurrency)
+Be quantitative. Show graphs!
+accuracy (numeric, music frequencies, video signal timing, etc)
+Be quantitative. Show graphs!
+how you enforced safety in the design.
+interference with other people's designs (e.g. cpu noise, RF interference).
+usability by you and other people (perhaps with special needs).
 
-### Support or Contact
-Having trouble with Pages? Check out our [documentation](https://help.github.com/pages) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+### Conclusions
+Analyse your design in terms of how the results met your expectations. What might you do differently next time?
+How did your design conform to the applicable standards?
+Intellectual property considerations.
+Did you reuse code or someone else's design?
+Did you use code in the public domain?
+Are you reverse-engineering a design? How did you deal with patent/trademark issues.
+Did you have to sign non-disclosure to get a sample part?
+Are there patent opportunites for your project?
+Are there publishing opportunities for your project?
+Ethical considerations. Refering to the IEEE Code of Ethics, specifically explain how decisions you made or actions you took in this project were consistent with this Code of Ethics. I expect at least 200 words on this topic. A bulleted list will not be acceptable.
+Legal considerations. For instance, if you use a transmitter, you must discuss the appropriate FCC legal restrictions.
+
+### Appendix A
+The group approves this report for inclusion on the course website.
+The group approves the video for inclusion on the course youtube channel.
+
+### Appendix
+Appendix with commented program listing
+Appendix with schematics (you can download free software from expresspcb.com to draw schematics) 
+A block diagram is not a schematic.
+Appendix with cost details with all part numbers, vendors, and their price. This cost will include components as described in the Budget Considerations section.
+Appendix with a list of the specific tasks in the project carried out by each team member.
+
+### References
+Data sheets
+Vendor sites
+Code/designs borrowed from others
+Background sites/paper
