@@ -1,5 +1,5 @@
 ### Introduction
-One sentence "sound bite" that describes your project.
+One sentence "sound bite" that describes your project.  
 
 A summary of what you did and why.
 
