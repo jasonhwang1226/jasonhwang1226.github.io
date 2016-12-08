@@ -16,7 +16,7 @@ To improve the signal, the signal was fed into an instrumentation amplifier, fol
 
 
 For the software design, the high level logical structure for the program flow is given by the following: 
-![Logical software for the software implementation](jasonhwang1226.github.io/images/Cyborg ( Timer ISR Code ).png "Logical software for the software implementation")
+![Program Flow](images/Cyborg ( Timer ISR Code ).png "Program Flow")
 
 
 As the above flowchart indicates, we read the input value, do some processing and detection based on the input and move the actuator(servo) based on the detection algorithm. This completes the high level software and hardware description.
