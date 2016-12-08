@@ -112,7 +112,7 @@ Each servo has a finite time to rotate by 180 degrees. We empirically estimated 
 
 
 ## HARDWARE DESIGN:
-### Hand design
+### Hand Design
 The hand itself was ordered pre-made from amazon. [4m Robotic Hand Kit](https://www.amazon.com/4M-3774-Robotic-Hand-Kit/dp/B005MK0OPO). Each finger is attached to a piece of fishing line which, when pulled, causes the finger to contract. We attached a board at the base of the hand and mounted five servo motors on it, one for each finger. The wires pulling each finger were attached to a servo. In order to move a finger the servos rotate 180 degrees, pulling the wire and bringing the fingers from extended to contracted. 
 
 
@@ -120,7 +120,7 @@ The hand itself was ordered pre-made from amazon. [4m Robotic Hand Kit](https://
 *Hand and servo motor setup*
 
 
-### Electrodes:
+### Electrodes
 In order to differentiate the signals between the different fingers, we used two sets of two electrodes on the forearm, all referenced to the same ground. For both sets, the two electrodes were placed about a quarter to a half an inch apart and affixed to the arm of the user with tape or foam sticking pads. 
 
 
@@ -164,7 +164,7 @@ The bandpass filter is seen in the diagram below:
 *Bode Plot Viewer:  The plot shows a bandpass filter that has a peak gain of 80.561 dB at around 265 Hz.*
 
 
-### Failed approaches:
+### Failed Approaches
 #### Butterworth Filter
 The moving averager was still not consistent enough to smooth out the fluctuations. So we tried using a butterworth lowpass filter to smooth out the high frequency fluctuations by using as little coefficients as possible. However, we found that the filter we wanted to implement still did not eliminate the noise levels we wanted. If we remedied the above by using a low cutoff frequency and a high pole filter, we faced the problem of having a slow rise time for the filtered signal. Thus we abandoned the above approach. 
 
