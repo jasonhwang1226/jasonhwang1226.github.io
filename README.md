@@ -96,14 +96,14 @@ The flowchart for the finger region identification and hysteresis is shown below
 *Region Identification & Hysteresis flowchart*  
 
 
-### Servo movement
+### Servo Movement
 To control the fingers on the robotic hand, servos attached to string manually pull the fingers down when the servos swing 180 degrees. To control the servos, PWM waves sent to the servo determine which angle the servo points to. For example, when the signal is high for 0.54 ms, the servo is at 0 degrees. When the signal is high for 2.5 ms, the servo points to 180 degrees.
 
 
 Since operating servos requires a 50 Hz PWM wave and the PIC32 clock cycle is at 40 MHz, or 40*10^6 ticks per second, 40*10^6 / 50 = 800,000 ticks per period. Since 800,000 overloads the timer, a prescaler of 16 was used. Therefore, 800,000/16 = 50,000 ticks/period with a prescaler of 16. It was found that to get the servos to point to 0 degrees, 1,350 of the 50,000 ticks need to be high. For the servos to point to 180 degrees, 6,250 ticks would need to high out of the total 50,000. Loading the PWM function of the PIC32 with the number of ticks that need to be high during one period allowed us to successfully output PWM waves and control the angle which the servos were pointing at. 
 
 
-### Servo lock
+### Servo Lock
 Each servo has a finite time to rotate by 180 degrees. We empirically estimated this value to be 600 ms. We had to make sure that no other servo moved when another finger servo was moving, and make sure not to change the state of a particular finger unless 600 ms has passed. Both of these conditions were met by implementing a variable called lock_motor. Initially lock_motor is set to 0 when no finger servo is moving. If there is a change of state and if no other servo is moving, we set lock_motor to the current finger digit and make sure that no other finger moves unless this finger servo resets the lock_motor value back to 0. This is not done for at least 600 ms. Thus, by introducing this variable, we ensure that two finger servos do not move at the same time.  The flowchart for this implementation is given below:
 
 
@@ -277,6 +277,7 @@ All the results and designs listed in the report and used during the demo of the
 
 # Appendix A
 The group approves this report for inclusion on the course website.  
+
 The group approves the video for inclusion on the course youtube channel.
 
 
@@ -291,6 +292,10 @@ The group approves the video for inclusion on the course youtube channel.
 
 ## Task Breakdown
 Michael: Researched EMG usage and placement, built instrumentation amplifier circuit, assembled hand and servos, tested EMG signals, helped write code for finger discrimination thresholding
+
+
 Jason: Servo control, built instrumentation amplifier circuit, tested EMG sensors, helped calibrate thresholds, helped write code for finger discrimination thresholding, created website
+
+
 Krishnaa: Wrote ADC code, wrote ISR, helped write finger discrimination thresholding code, wrote locking code to differentiate between fingers, researched instrumentation amplifier
 
