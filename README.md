@@ -281,8 +281,16 @@ The group approves the video for inclusion on the course youtube channel.
 
 
 # Appendix
+## Schematic
 ![Schematic](images/Bandpass_amplifier_simulation.png)  
 
 
+## Cost Breakdown
+![Cost Breakdown](images/Cost Breakdown.png)  
 
+
+## Task Breakdown
+Michael: Researched EMG usage and placement, built instrumentation amplifier circuit, assembled hand and servos, tested EMG signals, helped write code for finger discrimination thresholding
+Jason: Servo control, built instrumentation amplifier circuit, tested EMG sensors, helped calibrate thresholds, helped write code for finger discrimination thresholding, created website
+Krishnaa: Wrote ADC code, wrote ISR, helped write finger discrimination thresholding code, wrote locking code to differentiate between fingers, researched instrumentation amplifier
 
