@@ -202,7 +202,7 @@ For one noise free environment, we found the different finger ranges in the 2D g
 
 
 ## Demo
-[![Demo](https://img.youtube.com/vi/kEv7I8N3MB8&t=87s/0.jpg)](https://www.youtube.com/watch?v=kEv7I8N3MB8&t=87s)
+[![Demo](https://img.youtube.com/vi/kEv7I8N3MB8/0.jpg)](https://www.youtube.com/watch?v=kEv7I8N3MB8&t=87s)
 
 ## Five Finger Test
 [![Five Finger Test](https://img.youtube.com/vi/Lsh_Z_aI9V8/0.jpg)](https://www.youtube.com/watch?v=Lsh_Z_aI9V8)
