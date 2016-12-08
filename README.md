@@ -201,6 +201,12 @@ For one noise free environment, we found the different finger ranges in the 2D g
 *Isolating each of the five fingers*
 
 
+## Demo
+[![Demo](https://img.youtube.com/vi/kEv7I8N3MB8&t=87s/0.jpg)](https://www.youtube.com/watch?v=kEv7I8N3MB8&t=87s)
+
+## Five Finger Test
+[![Five Finger Test](https://img.youtube.com/vi/Lsh_Z_aI9V8/0.jpg)](https://www.youtube.com/watch?v=Lsh_Z_aI9V8)
+
 ### Numeric
 The internal 10-bit ADC was used in our design. This has 1024 values with the highest value corresponding to 3.3 V. Thus the resolution of the ADC is 3.2 mV. Moreover, since the ADC is not accurately calibrated, this range was reduced and hence we had a lower voltage range to work with. This was however not a serious limitation as our input signals were in the order of a few hundred mVs. 
 
