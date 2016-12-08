@@ -40,7 +40,7 @@
 
 <p>For the software design, the high level logical structure for the program flow is given by the following: 
 <img src="images/Cyborg%20(%20Timer%20ISR%20Code%20).png" alt="Program Flow"><br>
-<em>Logical structure for the software implementation</em></p>
+<center><em>Logical structure for the software implementation</em></center>
 
 <p>As the above flowchart indicates, we read the input value, do some processing and detection based on the input and move the actuator(servo) based on the detection algorithm. This completes the high level software and hardware description.</p>
 
@@ -78,7 +78,7 @@ We also made a design tradeoff by using a cutoff for the high pass filter to be 
 <p>However, we do not get samples at 588 kHz, as most EMG signals have a frequency range of 5-150 Hz. So we use Timer2 ISR to read ADC buffer values at a predetermined sample rate. We experimented with different sampling rates and found that 500 Hz was good enough for the signal to not have any aliasing. In order to do this, we set the prescaler to 16, and loaded the timer with a value of 50,000. Most of the filtering is done in the ISR. The configurations that were set up for the peripherals involved are summarized in the diagram below: </p>
 
 <p><img src="images/Cyborg(Configurations).png" alt="Configurations"><br>
-<em>ADC, OC, &amp; Timer Configurations</em></p>
+<center><em>ADC, OC, &amp; Timer Configurations</em></center>
 
 <h3>
 <a id="averager" class="anchor" href="#averager" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Averager</h3>
@@ -90,8 +90,8 @@ We also made a design tradeoff by using a cutoff for the high pass filter to be 
 <p>To update the input_history matrix, the averager function sets the j-1 element of the matrix to the jth element and sets the 0th element to the newest ADC reading. </p>
 
 <p><img src="images/Cyborg%20(%20Averager%20).png" alt="Averager"><br>
-<em>LEFT:   Flowchart for the averager implementation</em><br>
-<em>RIGHT:   Flowchart for updating history values</em></p>
+<center><em>LEFT:   Flowchart for the averager implementation</em><br></center>
+<center><em>RIGHT:   Flowchart for updating history values</em></center>
 
 <h3>
 <a id="region-detection-thresholding" class="anchor" href="#region-detection-thresholding" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Region Detection (Thresholding)</h3>
@@ -101,7 +101,7 @@ We also made a design tradeoff by using a cutoff for the high pass filter to be 
 <p>Noise plays a role in determining the regions in the 2D space for different fingers. In order to minimize the noise, we made sure the wires were twisted together tightly; there was no direct power supply from an AC power socket; and we were in an environment of low light away from the 120Hz frequency influence of the above fluorescent bulbs. Even though we were not able to completely eliminate noise, we tried to minimize it as much as we could. We then did empirical estimates for different finger regions by looking at ADC read values in PuTTy. The resulting regions for different fingers is seen in the diagram below:</p>
 
 <p><img src="images/Thresholds.JPG" alt="Thresholds"><br>
-<em>Finger Regions based on Electrode Inputs</em>  </p>
+<center><em>Finger Regions based on Electrode Inputs</em></center>
 
 <p>We did addition checking for consistency in these threshold regions to activate a finger movement. We created an array variable called changes which keeps track of the number of times the ADC inputs have been encountered in any of the finger regions. We also created an array variable called finger_state, which is set to 1 if a particular finger is pressed. In our current program, we constrain it such that only one finger can be pressed at a time, as multiple finger detection would require more electrodes and more complexity. </p>
 
@@ -112,7 +112,7 @@ We also made a design tradeoff by using a cutoff for the high pass filter to be 
 <p>The flowchart for the finger region identification and hysteresis is shown below:</p>
 
 <p><img src="images/Cyborg%20(%20Finger%20Thresholding%20).png" alt="Threshold Flowchart"><br>
-<em>Region Identification &amp; Hysteresis flowchart</em>  </p>
+<center><em>Region Identification &amp; Hysteresis flowchart</em> </center>
 
 <h3>
 <a id="servo-movement" class="anchor" href="#servo-movement" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Servo Movement</h3>
@@ -127,7 +127,7 @@ We also made a design tradeoff by using a cutoff for the high pass filter to be 
 <p>Each servo has a finite time to rotate by 180 degrees. We empirically estimated this value to be 600 ms. We had to make sure that no other servo moved when another finger servo was moving, and make sure not to change the state of a particular finger unless 600 ms has passed. Both of these conditions were met by implementing a variable called lock_motor. Initially lock_motor is set to 0 when no finger servo is moving. If there is a change of state and if no other servo is moving, we set lock_motor to the current finger digit and make sure that no other finger moves unless this finger servo resets the lock_motor value back to 0. This is not done for at least 600 ms. Thus, by introducing this variable, we ensure that two finger servos do not move at the same time.  The flowchart for this implementation is given below:</p>
 
 <p><img src="images/Cyborg%20(%20Move%20Finger%20).png" alt="Servo Lock"><br>
-<em>FINGER SERVO MOVEMENT:  Flowchart for making sure only one finger servo moved at a given time</em>  </p>
+<center><em>FINGER SERVO MOVEMENT:  Flowchart for making sure only one finger servo moved at a given time</em>  </center>
 
 <h2>
 <a id="hardware-design" class="anchor" href="#hardware-design" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>HARDWARE DESIGN:</h2>
@@ -135,10 +135,11 @@ We also made a design tradeoff by using a cutoff for the high pass filter to be 
 <h3>
 <a id="hand-design" class="anchor" href="#hand-design" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Hand Design</h3>
 
-<p>The hand itself was ordered pre-made from Amazon: <a href="https://www.amazon.com/4M-3774-Robotic-Hand-Kit/dp/B005MK0OPO">4m Robotic Hand Kit</a>. Each finger is attached to a piece of fishing line which, when pulled, causes the finger to contract. We attached a board at the base of the hand and mounted five servo motors on it, one for each finger. The wires pulling each finger were attached to a servo. In order to move a finger the servos rotate 180 degrees, pulling the wire and bringing the fingers from extended to contracted. </p>
+<p>The hand itself was ordered pre-made from Amazon: <a href="https://www.amazon.com/4M-3774-Robotic-Hand-Kit/dp/B005MK0OPO">4m Robotic Hand Kit</a>. Each finger is attached to a piece of fishing line which, when pulled, causes the finger to contract. We attached a board at the base of the 
+  mounted five servo motors on it, one for each finger. The wires pulling each finger were attached to a servo. In order to move a finger the servos rotate 180 degrees, pulling the wire and bringing the fingers from extended to contracted. </p>
 
 <p><img src="images/Servos.png" alt="Robotic Hand"><br>
-<em>Hand and servo motor setup</em></p>
+<center><em>Hand and servo motor setup</em></center>
 
 <h3>
 <a id="electrodes" class="anchor" href="#electrodes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Electrodes</h3>
@@ -146,14 +147,14 @@ We also made a design tradeoff by using a cutoff for the high pass filter to be 
 <p>In order to differentiate the signals between the different fingers, we used two sets of two electrodes on the forearm, all referenced to the same ground. For both sets, the two electrodes were placed about a quarter to a half an inch apart and affixed to the arm of the user with tape or foam sticking pads. </p>
 
 <p><img src="images/Electrode%20Placement.JPG" alt="Electrode Placement"><br>
-<em>Electrode placement markings. The ground electrode was placed on the wrist.</em></p>
+<center><em>Electrode placement markings. The ground electrode was placed on the wrist.</em></center>
 
 <p>When a muscle receives a signal from the nervous system, it triggers an action potential in the muscle cell, essentially just a voltage difference across the cell membrane. An attenuated version of these voltage differences can be measured on the surface of the skin, after passing through the dielectric medium of veins, body fat, and skin. The action potentials occur at varying frequencies depending on the strength of contraction of the muscle. </p>
 
 <p>The Silver Chloride (AgCl) electrode consists of a silver electrode. A conductive gel containing Chloride ions is applied to the electrodes before they are attached to the skin. When a muscle in the vicinity of an electrode fires an action potential, it can be detected as a current of chloride ions on the skin. The chloride ions bind to a Silver atom and “knock off” an electron (the reverse reaction happens as well). The electron can then travel through a wire connected to the electrode as a normal current. </p>
 
 <p><img src="images/Electrode.JPG" alt="Electrode"><br>
-<em>A Silver Chloride electrode</em></p>
+<center><em>A Silver Chloride electrode</em></center>
 
 <p>In order to get a good signal, the electrodes had to placed over the belly of the muscle being read. If the electrodes are placed close to the tendons, the signal will be inconsistent and will not accurately reflect the activity of the muscle. Furthermore, there are several muscles in the forearm in close proximity to one another. This makes it difficult to isolate a signal from only one muscle. In order to differentiate between the different inputs generated by different fingers, we measured the same group of muscles at two different locations. The variable activity between these two inputs allowed us to discriminate between the signals generated by the contraction of different fingers. </p>
 
@@ -163,18 +164,18 @@ We also made a design tradeoff by using a cutoff for the high pass filter to be 
 <p>The signal detectable on the surface of the skin should theoretically be around 2mV, but we found it to be significantly less in practice to be around 10 uV. In order to read this signal, we designed an instrumentation amplifier.  Because the resistance of a human body is fairly high, on the order of Megaohms, the input impedance of the amplifier needed to be significantly higher. The instrumentation amplifier design is characterized by extremely high input impedance, low noise, and high common mode rejection. This was ideal for our purposes as combating noise was our most significant challenge during this project. The basic design of the instrumentation amplifier was derived from the schematic in Medical Instrumentation: Application and Design, although we changed the specific resistor and capacitor values. The amplifier we built contains two input op-amps along with a two stage differential amplifier. The gain of the first stage was 25, and the gain of the second stage was 214, for an overall gain of 5350. The amplifier contains high and low-pass filters, which are intended to reduce the signal received to the frequency ranges that were relevant to us. The low-pass filter has a cutoff frequency of ~1500Hz, and the High-pass filter has a cutoff of 72Hz. This was aimed at eliminating 60Hz line noise. </p>
 
 <p><img src="images/Bandpass_amplifier_simulation.png" alt="Schematic"><br>
-<em>Instrumentation amplifier simulation schematic. 
-(Note: the actual op-amps used in the circuit were LF353, not LM358.  Unfortunately the design software does not have these as an option. However, the results were are good estimates of the actual design )</em></p>
+<center><em>Instrumentation amplifier simulation schematic. 
+(Note: the actual op-amps used in the circuit were LF353, not LM358.  Unfortunately the design software does not have these as an option. However, the results were are good estimates of the actual design )</em></center>
 
 <p>The final circuit contained two of these amplifiers, one for each of the two sets of electrodes. Running the circuit simulation, the oscilloscope output was seen to be:</p>
 
 <p><img src="images/Oscilloscope.png" alt="Oscilloscope"><br>
-<em>Oscilloscope output: The input amplitude is 20 uV, and the output amplitude is 160 mV approximately. We see that we at least have a good enough gain to measure, as the ADC resolution is 3.3/1024 = 3.2 mV.</em></p>
+<center><em>Oscilloscope output: The input amplitude is 20 uV, and the output amplitude is 160 mV approximately. We see that we at least have a good enough gain to measure, as the ADC resolution is 3.3/1024 = 3.2 mV.</em></center>
 
 <p>The bandpass filter is seen in the diagram below:</p>
 
 <p><img src="images/Bode_plot_magnitude.png" alt="Band Pass Filter"><br>
-<em>Bode Plot Viewer:  The plot shows a bandpass filter that has a peak gain of 80.561 dB at around 265 Hz.</em></p>
+<center><em>Bode Plot Viewer:  The plot shows a bandpass filter that has a peak gain of 80.561 dB at around 265 Hz.</em></center>
 
 <h3>
 <a id="failed-approaches" class="anchor" href="#failed-approaches" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Failed Approaches</h3>
@@ -208,19 +209,19 @@ We also made a design tradeoff by using a cutoff for the high pass filter to be 
 <p>For one noise free environment, we found the different finger ranges in the 2D generated by the 2 electrode inputs (1024x1024) to be:</p>
 
 <p><img src="images/Thresholds.JPG" alt="Thresholds"><br>
-<em>Range of voltages each finger on both sets of electrodes</em></p>
+<center><em>Range of voltages each finger on both sets of electrodes</em></center>
 
 <h2>
 <a id="bandpass-filter--gain-circuit" class="anchor" href="#bandpass-filter--gain-circuit" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Bandpass Filter &amp; Gain Circuit</h2>
 
 <p><img src="images/Gain_Filter%20Circuit.JPG" alt="Circuit"><br>
-<em>Hardware circuit layout used</em></p>
+<center><em>Hardware circuit layout used</em></center>
 
 <h2>
 <a id="finger-movement-capture" class="anchor" href="#finger-movement-capture" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Finger Movement Capture</h2>
 
 <p><img src="images/Five%20fingers%20isolated.png" alt="Finger Diagram"><br>
-<em>Isolating each of the five fingers</em></p>
+<center><em>Isolating each of the five fingers</em></center>
 
 <h2>
 <a id="demo" class="anchor" href="#demo" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Demo</h2>
