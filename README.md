@@ -113,7 +113,7 @@ Each servo has a finite time to rotate by 180 degrees. We empirically estimated 
 
 ## HARDWARE DESIGN:
 ### Hand Design
-The hand itself was ordered pre-made from amazon. [4m Robotic Hand Kit](https://www.amazon.com/4M-3774-Robotic-Hand-Kit/dp/B005MK0OPO). Each finger is attached to a piece of fishing line which, when pulled, causes the finger to contract. We attached a board at the base of the hand and mounted five servo motors on it, one for each finger. The wires pulling each finger were attached to a servo. In order to move a finger the servos rotate 180 degrees, pulling the wire and bringing the fingers from extended to contracted. 
+The hand itself was ordered pre-made from Amazon: [4m Robotic Hand Kit](https://www.amazon.com/4M-3774-Robotic-Hand-Kit/dp/B005MK0OPO). Each finger is attached to a piece of fishing line which, when pulled, causes the finger to contract. We attached a board at the base of the hand and mounted five servo motors on it, one for each finger. The wires pulling each finger were attached to a servo. In order to move a finger the servos rotate 180 degrees, pulling the wire and bringing the fingers from extended to contracted. 
 
 
 ![Robotic Hand](images/Servos.png)  
